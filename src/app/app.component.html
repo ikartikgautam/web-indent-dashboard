@@ -26,7 +26,7 @@
             <mat-icon (click)="indent('inc',i)" class="icn primary">arrow_forward</mat-icon>
             <mat-icon (click)="deleteItem(i)" class="icn delete">delete</mat-icon>
           </div>
-          <div id="text_{{i}}" [ngStyle]="{'margin-left':appendPx(ele.indent)}" style="display:flex;">
+          <div id="text_{{i}}" [ngStyle]="{'margin-left':appendPx(ele.indent)}" style="display:flex; transition:0.3s;">
             <div style="width:100%;height:100%; background-color:#b4b4b4; height:24px; padding: 10px 24px;"></div>
             <input type="text" placeholder="Type here" value="{{ele.title}}" #inp (change)="updateVal(i,inp.value)"
               style="margin-left:12px;" [ngStyle]="{'color':ele.indent==10?'#09c7cd':'black'}">

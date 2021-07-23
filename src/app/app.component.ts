@@ -11,31 +11,30 @@ export class AppComponent {
   data: any[] = [
   ];
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.data, event.previousIndex, event.currentIndex);
   }
 
-  addItem() {
-    let obj = { title: '', indent: 10 };
+  addItem(): void {
+    const obj = { title: '', indent: 10 };
     this.data.push(obj);
   }
-  deleteItem(index: number) {
+  deleteItem(index: number): void {
     this.data.splice(index, 1);
   }
-  updateVal(i: number, val: any) {
+  updateVal(i: number, val: any): void {
     this.data[i].title = val;
   }
-  indent(type: string, i: number) {
-    let element = document.getElementById(`text_${i}`);
+  indent(type: string, i: number): void {
     if (type === 'dec' && this.data[i].indent > 10) {
       // TODO: decrease indent
       this.data[i].indent = this.data[i].indent - 40;
-    } else {
+    } else if (type === 'inc') {
       // TODO: increase indent
       this.data[i].indent = this.data[i].indent + 40;
     }
   }
-  appendPx(num: number) {
+  appendPx(num: number): string {
     return `${num}px`;
   }
 
